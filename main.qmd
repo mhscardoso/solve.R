@@ -1,6 +1,9 @@
 ---
 title: "Álgebra Linear Computacional - Grupo 4"
-format: html
+format:
+  html:
+    self-contained-math: true
+    embed-resources: true
 editor: visual
 author: "Felipe Pêpe,\nGustavo Oliveira,\nIgor Godinho,\nLucas Inocêncio,\nMatheus Cardoso"
 prefer-html: true
