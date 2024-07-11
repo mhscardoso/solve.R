@@ -1,5 +1,5 @@
 ---
-title: "Trabalho 1"
+title: "Álgebra Linear Computacional - Grupo 4"
 format: html
 editor: visual
 author: "Felipe Pêpe,\nGustavo Oliveira,\nIgor Godinho,\nLucas Inocêncio,\nMatheus Cardoso"
@@ -372,3 +372,83 @@ adj <- create_adj_matrix(triangled)
 plot_mesh_grid(triangled)
 plot_adj_matrix(adj)
 ```
+
+# Figuras mais desordenadas (Delaunay)
+
+```{r message=FALSE}
+library("deldir")
+```
+
+Veja a importação da biblioteca "deldir" acima, utilizada para triangulizar uma figura.
+
+Abaixo, as coordenadas de x e y diretamente escritas no código.
+
+```{r}
+x <- c(2.3,3.2,7.0,1.0,4.0,8.0)
+y <- c(3.1,2.0,3.5,5.0,8.0,9.0)
+
+dxy2 <- deldir(x,y,plot=TRUE,wl="tr")
+```
+
+A figura acima é o plot gerado pela biblioteca "deldir". Porém, é possível fazer uma plotagem melhor:
+
+A partir daqui, temos alguns trabalhos:
+
+1.  Plotar os vértices
+2.  Obter o índice de cada vértice
+
+```{r}
+x1 <- dxy2[["delsgs"]][["x1"]]
+x2 <- dxy2[["delsgs"]][["x2"]]
+y1 <- dxy2[["delsgs"]][["y1"]]
+y2 <- dxy2[["delsgs"]][["y2"]]
+
+ind1 <- dxy2[["delsgs"]][["ind1"]]
+ind2 <- dxy2[["delsgs"]][["ind2"]]
+
+len <- length(x1)
+
+# Plotando os vértices
+plot(x, y)
+
+# Plotando as linhas
+for (i in 1:len) {
+  polygon(c(x1[i], x2[i]), c(y1[i], y2[i]), border = "red")
+}
+
+# Matriz que terá os índices
+indexes <- matrix(0, length(x), 2)
+
+# Lendo da primeira lista
+for (i in 1:len) {
+ indexes[ind1[i], 1] <- x1[i]
+ indexes[ind1[i], 2] <- y1[i]
+}
+
+# Lendo da segunda lista
+for (i in 1:len) {
+ indexes[ind2[i], 1] <- x2[i]
+ indexes[ind2[i], 2] <- y2[i]
+}
+
+# Plotando os índices
+for (i in 1:length(x)) {
+  text(indexes[i, 1], indexes[i, 2], i, col="blue", cex=1.5)
+}
+```
+
+## Gerando a Matriz de Adjacências
+
+```{r}
+adj <- matrix(0, length(x), length(y))
+
+for (i in 1:len) {
+  adj[ind1[i], ind2[i]] <- 1
+  adj[ind2[i], ind1[i]] <- 1
+}
+
+heatmap(adj, Colv = "Rowv", Rowv = NA,
+          symm=TRUE, main="Matriz de Adjacência")
+```
+
+Finalmente, a matriz de adjacência montada.
