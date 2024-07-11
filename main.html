@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Felipe Pêpe, Gustavo Oliveira, Igor Godinho, Lucas Inocêncio, Matheus Cardoso">
+
+<title>Trabalho 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="main_files/libs/clipboard/clipboard.min.js"></script>
+<script src="main_files/libs/quarto-html/quarto.js"></script>
+<script src="main_files/libs/quarto-html/popper.min.js"></script>
+<script src="main_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="main_files/libs/quarto-html/anchor.min.js"></script>
+<link href="main_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="main_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="main_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="main_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="main_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="main_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="main_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="main_files/libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="main_files/libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="main_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="main_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="main_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="main_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Trabalho 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Felipe Pêpe, Gustavo Oliveira, Igor Godinho, Lucas Inocêncio, Matheus Cardoso </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="implementação-do-solver" class="level2">
+<h2 class="anchored" data-anchor-id="implementação-do-solver">Implementação do Solver</h2>
+<p>Aqui, primeiramente projetamos a matriz para resolver o problema:</p>
+<p><span class="math display">\[
+\frac{\partial}{\partial{x}} \Big(k \frac{\partial u}{\partial x}\Big) + &nbsp;\frac{\partial}{\partial{y}} \Big(k \frac{\partial u}{\partial y}\Big) = f(x,y) ,\forall \text{ &nbsp;x, y em } \Omega : (0,1) \times (0,1)
+\]</span></p>
+<p><span class="math display">\[
+\\\text{condições de contorno: } u(x,y) = 0, &nbsp;\forall \text{ &nbsp;x, y em } &nbsp;\partial{\Omega}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> L <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerando D (Matriz que faz d2u)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>solver <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, n<span class="sc">*</span>n, n<span class="sc">*</span>n)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n <span class="sc">*</span> n)) {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">&lt;=</span> n <span class="sc">||</span> i <span class="sc">&gt;=</span> (n<span class="sc">*</span>n <span class="sc">-</span> n) <span class="sc">||</span> i <span class="sc">%%</span> n <span class="sc">&lt;=</span> <span class="dv">1</span>) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    solver[i, i] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  solver[i, i <span class="sc">-</span> n] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  solver[i, i <span class="sc">-</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  solver[i, i] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">4</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  solver[i, i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  solver[i, i <span class="sc">+</span> n] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">solve</span>(solver)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Perceba que o R já possui uma função para calcular a inversa de uma matriz, a função <em>solve</em>.</p>
+<p>A partir deste momento, já temos a matriz A.</p>
+</section>
+<section id="projetando-a-função-f." class="level2">
+<h2 class="anchored" data-anchor-id="projetando-a-função-f.">Projetando a função <em>f</em>.</h2>
+<p>Nesse caso, escolhemos que <em>f</em> seja a função:</p>
+<p><span class="math display">\[
+f(x, y) = -\frac{e^{x}}{|y| + 1}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, n <span class="sc">*</span> n, <span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, L, d)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(X)) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(X)) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    f[i <span class="sc">+</span> (j <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> n] <span class="ot">&lt;-</span> <span class="sc">-</span> (<span class="fu">exp</span>(X[i]) <span class="sc">/</span> (<span class="fu">abs</span>(X[j]) <span class="sc">+</span> <span class="dv">1</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>solution <span class="ot">&lt;-</span> A <span class="sc">%*%</span> f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ao final, obtemos a matriz solução.</p>
+<ol type="1">
+<li>Temos a matriz A.</li>
+<li>Temos o vetor força <em>f.</em></li>
+</ol>
+<p>Fazemos:</p>
+<p><span class="math display">\[
+U = Af
+\]</span></p>
+<p>Em que <span class="math inline">\(U\)</span> é o vetor solução.</p>
+</section>
+<section id="aplicando-as-condições-de-contorno" class="level2">
+<h2 class="anchored" data-anchor-id="aplicando-as-condições-de-contorno">Aplicando as Condições de Contorno</h2>
+<p>Apenas definimos a matriz cujos valores serão o do espaço (em z). Caso o ponto esteja nas bordas, o valor é zero.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, L, d)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, L, d)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, n, n)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">1</span> <span class="sc">||</span> j <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      z[i, j] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      z[i, j] <span class="ot">&lt;-</span> solution[i <span class="sc">+</span> (j <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> n]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plotagem-do-gráfico" class="level2">
+<h2 class="anchored" data-anchor-id="plotagem-do-gráfico">Plotagem do Gráfico</h2>
+<p>Finalmente, plotamos o gráfico.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">'surface'</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">contours =</span> <span class="fu">list</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">list</span>(<span class="at">show =</span> <span class="cn">TRUE</span>, <span class="at">start =</span> <span class="fl">1.5</span>, <span class="at">end =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">0.04</span>, <span class="at">color =</span> <span class="st">'white'</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">z =</span> <span class="fu">list</span>(<span class="at">show =</span> <span class="cn">TRUE</span>, <span class="at">start =</span> <span class="fl">0.5</span>, <span class="at">end =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="fl">0.05</span>)),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="sc">~</span>x,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="sc">~</span>y,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">z =</span> <span class="sc">~</span>z)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">layout</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">scene =</span> <span class="fu">list</span>(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">nticks =</span> <span class="dv">20</span>),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">nticks =</span> <span class="dv">4</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">camera =</span> <span class="fu">list</span>(<span class="at">eye =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">z =</span> <span class="dv">1</span>)),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">aspectratio =</span> <span class="fu">list</span>(<span class="at">x =</span> .<span class="dv">9</span>, <span class="at">y =</span> .<span class="dv">8</span>, <span class="at">z =</span> .<span class="dv">8</span>)))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># htmlwidgets::saveWidget(widget = fig, file = "hc.html")</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># webshot(url = "hc.html", file = "hc.png", delay = 1, zoom = 4, vheight = 500)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-06942720532ced44f979" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-06942720532ced44f979">{"x":{"visdat":{"307b169cb703":["function () ","plotlyVisDat"]},"cur_data":"307b169cb703","attrs":{"307b169cb703":{"contours":{"x":{"show":true,"start":1.5,"end":2,"size":0.040000000000000001,"color":"white"},"z":{"show":true,"start":0.5,"end":0.80000000000000004,"size":0.050000000000000003}},"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"nticks":20,"title":"x"},"zaxis":{"nticks":4,"title":"z"},"camera":{"eye":{"x":0,"y":-1,"z":1}},"aspectratio":{"x":0.90000000000000002,"y":0.80000000000000004,"z":0.80000000000000004},"yaxis":{"title":"y"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"z","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"contours":{"x":{"show":true,"start":1.5,"end":2,"size":0.040000000000000001,"color":"white"},"z":{"show":true,"start":0.5,"end":0.80000000000000004,"size":0.050000000000000003}},"x":[0,0.041666666666666664,0.083333333333333329,0.125,0.16666666666666666,0.20833333333333331,0.25,0.29166666666666663,0.33333333333333331,0.375,0.41666666666666663,0.45833333333333331,0.5,0.54166666666666663,0.58333333333333326,0.625,0.66666666666666663,0.70833333333333326,0.75,0.79166666666666663,0.83333333333333326,0.875,0.91666666666666663,0.95833333333333326,1],"y":[0,0.041666666666666664,0.083333333333333329,0.125,0.16666666666666666,0.20833333333333331,0.25,0.29166666666666663,0.33333333333333331,0.375,0.41666666666666663,0.45833333333333331,0.5,0.54166666666666663,0.58333333333333326,0.625,0.66666666666666663,0.70833333333333326,0.75,0.79166666666666663,0.83333333333333326,0.875,0.91666666666666663,0.95833333333333326,1],"z":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0.90848491685381905,2.3222486588501789,3.4004691716435089,4.240056361304279,4.8955237652974191,5.4014477800085592,5.7816718308679675,6.0535614628925805,6.2301833927698089,6.3215158957079849,6.3351628572691032,6.2767910942366312,6.1503995591362024,5.9584750348983162,5.7020588714840992,5.3807283666964736,4.9924755549754565,4.5334358814582343,3.9973619297518259,3.3746101233879426,2.6500905468485274,1.7987472591746281,0.77441927355918783,-0.52127345259499569],[0,2.3133928847726977,4.9407664805741609,7.0017521951395842,8.6277637323990621,9.9053796879954419,10.894557999716866,11.638738541068797,12.170480449040058,12.514713008704121,12.690684223247143,12.713169418430077,12.593237357081216,12.338734114854207,11.954569979379281,11.442849373455445,10.802850897212354,10.030832466270033,9.1195935238542365,8.0576546042876434,6.8277806141205062,5.404313122063547,3.7482808309742808,1.7984772084111655,-0.54345202476061449],[0,3.4477963036436483,7.1223761378223136,10.071872463033838,12.432234642710137,14.30416645496468,15.763142750177671,16.866769781795124,17.659730746353816,18.177028297380424,18.446112182249045,18.48828760216545,18.319652101123147,17.951710720887423,17.391755678822076,16.643053715271439,15.704850952714722,14.572173372245185,13.235363115103178,11.67923822876098,9.881687852458592,7.8114183365662102,5.424505360584531,2.6596459200737361,-0.56657422653341316],[0,4.4007421301022527,8.9830861165912967,12.723883807070594,15.753865817814276,18.178130708851196,20.080558001780521,21.528190867851123,22.574783117399548,23.263449286347903,23.628579109920661,23.697200624756572,23.489940422313925,23.021685775950143,22.302015592550088,21.335436731129317,20.121436754289824,18.654340543341515,16.92293393379985,14.909792392645576,12.590233255986613,9.9308211695225257,6.8874684661672863,3.4035463405219413,-0.59068020643282293],[0,5.2193405166886997,10.594855856417089,15.036612686073527,18.668619473026023,21.596254977784117,23.907679349949575,25.676050960468775,26.961741259396071,27.814235411334145,28.273652878424009,28.371919652946925,28.133649578848814,27.576788532676851,26.713061818278319,25.548249839104017,24.082302542254311,22.309290066475693,20.217176591043067,17.787400200668007,14.994253202302072,11.804105732508347,8.1746390395015531,4.0545033118800866,-0.61581182117352484],[0,5.931029025929349,12.003500744148358,17.064315036805251,21.232067002706103,24.611315640815533,27.292554545887235,29.353077286732312,30.858177816621446,31.862371935825351,32.410495944896354,32.538633603577551,32.27486727922615,31.639865946378055,30.647325745194763,29.304276023309779,27.61125932373951,25.562390164475325,23.145297224744699,20.340960769789923,17.12347890603785,13.459843576122131,9.3098923992694314,4.6267254883229425,-0.6420127083438707],[0,6.5526358595478422,13.238548826653009,18.84372378834837,23.483424645873807,27.26174431272937,30.270925572701284,32.591441630387081,34.292501722016304,35.432741903767386,36.060954479390738,36.216776965797777,35.931303043641662,35.227600877049376,34.121135771746943,32.620099698008289,30.725653314906012,28.432089408782712,25.726932564134639,22.591001398860161,18.998480575925822,14.917083711106068,10.308435188772282,5.1288463972838656,-0.66932836217654701],[0,7.09451185458314,14.318651784395396,20.398689555747513,25.448743430265967,29.573457550682871,32.867036422318982,35.412882540599234,37.283652994024607,38.541570951034821,39.238868944734563,39.418280697024734,39.113529236257989,38.349780871174865,37.144049361880725,35.505544928622427,33.435970794481626,30.929777655408177,27.974395524520638,24.550474444090892,20.632181892597469,16.187625250615717,11.179488652115127,5.565983883057763,-0.69780621254304476],[0,7.5625842713927804,15.254599277441496,21.743094842126098,27.143162747257211,31.561316444242507,35.094390085223552,37.828924980115794,39.840947443633461,41.196029107004676,41.949531469074209,42.146956264106656,41.824344049800004,41.00868189594194,39.718296449608552,37.963221444681416,35.745539823938266,33.059711035260726,29.892904620113967,26.225372490569828,22.030904158801349,17.277420119931634,11.927764672926337,5.9407535421396567,-0.72749570730910063],[0,7.9594256101312064,16.050997213742566,22.882602086175378,28.572360774150127,33.230124567915404,36.956289362522391,39.841034884850977,41.963939132425082,43.393890990008458,44.189218797191096,44.397960441932348,44.058214526481322,43.198527998296974,41.838291149855358,39.988125244483733,37.65026117255838,34.818919750098694,31.480715764608526,27.615118507858256,23.195010451405683,18.187390976253457,12.554270422065935,6.2537869805041222,-0.7584483981941067],[0,8.2847968272450174,16.707149453786954,23.815602806782032,29.733356441205448,34.575168824770159,38.446090474989063,41.44061435100781,43.642210613916255,45.123179253312429,45.944741607946078,46.157294376712549,45.800761084970432,44.904991363792597,43.490174825102827,41.567252259216303,39.138321793879861,36.197051439837473,32.729122010998545,28.71273525244623,24.119229910134298,18.913851286870134,13.056714643072954,6.5039867578493107,-0.79071803028357213],[0,8.5358696874846007,17.217413834546967,24.533582303233981,30.614776735776271,35.582329144156454,39.547140513202194,42.608783834997219,44.855032673494335,46.361738484602881,47.192966197108973,47.401301073326749,47.028253365850539,46.104705183189054,44.651362805083508,42.679195751511322,40.189860667566968,37.176123534772508,33.622307838206439,29.504808593500499,24.792721162233079,19.44863705238404,13.429653030427943,6.6886216199417925,-0.8243606353500641],[0,8.7072169389744438,17.571157336113004,25.021005817430549,31.196649393909063,36.227771520228828,40.232381582106058,43.315918431419817,45.570856807435895,47.076705799441108,47.900280372654301,48.096138625154744,47.707098608115913,46.764772373791722,45.290077815878064,43.293709569132304,40.77656882768413,37.73016905941072,34.137050773154122,29.971253597934801,25.19890658162247,19.779004718964938,13.66443640420856,6.8033071035037409,-0.85943462914466429],[0,8.7905955026317635,17.75234420738677,25.254750451320106,31.449726995095489,36.477213471124905,40.463600456942061,43.520914010851541,45.74661838167134,47.22386079976993,48.021991392472884,48.197221240837862,47.793317228807076,46.842265666390709,45.364864878690426,43.371230184046794,40.861214459652878,37.824765731326266,34.242261592327729,30.084879555114583,25.315081797381083,19.887308566557056,13.748979411786651,6.8418845466913156,-0.89600091282787764],[0,8.7745009371920304,17.738718008107728,25.203034273673602,31.334293099180112,36.284718918587089,40.190291303161011,43.170162521252429,45.326840539386168,46.746853570472098,47.501660691460643,47.648636465038429,47.2320155161134,46.283728621686144,44.8240952217161,42.862361474461991,40.397092000160868,37.416441135481008,33.898349266484196,29.810734167332374,25.111776944963417,19.750434031079163,13.667330655434492,6.7961878222657708,-0.93412297871611116],[0,8.6434200763259739,17.500457884241033,24.823712462813319,30.798338531565225,35.590943215421213,39.348086549916658,42.196220264566556,44.242543216074651,45.57632791859362,46.270399485554194,46.382565469502509,45.956882443967153,45.024702866892596,43.605481096805612,41.707338671965886,39.327403356588228,36.451950154236343,33.05639105226296,29.105188973037713,24.551814534552584,19.338922113397786,13.398984335337413,6.6556611299433222,-0.97386702052733787],[0,8.3766308455130023,16.998072644128186,24.061700014169269,29.774919027942243,34.320711034536217,37.856704183674232,40.51616564246396,42.409983610961227,43.628981554233867,44.24617277485666,44.318754426727082,43.889756562656942,42.989324251454427,41.635639811244815,39.835503196281842,37.584592175357017,34.867428072971379,31.657084934690889,27.914708766251483,23.588969720781609,18.615664064059452,12.917814377675958,6.4067517872652777,-1.0153020483173738],[0,7.9462548254632432,16.179098051080459,22.845114502562513,28.178408734382668,32.37977776906461,35.617370230472098,38.029673919710923,39.729290958596387,40.806638933153309,41.333188035286902,41.364108662199797,40.940329064055959,40.090049161800813,38.829763902562789,37.164839605553574,35.089671617605781,32.587438727132231,29.629466649200729,26.174231010467008,22.166089283734934,17.53396119284394,12.190411708406169,6.0319294702010344,-1.0585000083063374],[0,7.3139704059240191,14.972796370679214,21.079473418073022,25.899252195150435,29.650621063119107,32.509725036148581,34.616901092514453,36.08311735810031,36.995458808777833,37.421478818034721,37.412505968480687,37.006068525157758,36.227590229165209,35.091474389580839,33.60165046477136,31.751615952412752,29.523969046831347,26.889397629305542,23.805077938059874,20.212467929058395,16.034613039648473,11.173420045105814,5.5080331083602232,-1.1035359078033522],[0,6.4251133001778999,13.281346547079304,18.638888990027407,22.796729723078332,25.987187059886555,28.388350306003243,30.13638729562825,31.335514710807708,32.065456987199866,32.386829413282882,32.344947194971539,31.972467628524669,31.291154689457656,30.312952867756543,29.040473871164991,27.466929591078443,25.575479401046533,23.337892988497845,20.712361146790773,17.640234100823001,14.041498023262141,9.8091065941266304,4.8033034307339735,-1.1504879454464123],[0,5.197175283343979,10.964609781993149,15.352694368863126,18.689325597912248,21.208791237641137,23.079321119635328,24.423382383464084,25.331365284132776,25.870588004372699,26.091216377001018,26.030173730128482,25.7137161772499,25.159083130183454,24.375460589732487,23.364377397427173,22.119563605153814,20.62621326115837,18.859490410624041,16.781973946260841,14.339531545511882,11.454851216640956,8.017695716938757,3.8715955535246502,-1.199437646983549],[0,3.4949330629635464,7.8128765034858061,10.985619510882268,13.342908238666016,15.094055067778363,16.377660316259167,17.28926205848548,17.896819567411242,18.249676791726511,18.383950623302088,18.325872112571204,18.093890024184912,17.699973846585344,17.150349830530928,16.445780573523834,15.581408994571051,14.546099943535619,13.321095564312213,11.877605541297779,10.172589485249787,8.1412794240685979,5.6836423935669176,2.6398631164900559,-1.2504700068310644],[0,1.0697180655708867,3.4977836454930564,5.2109411425922563,6.4589699092379282,7.3771170189646895,8.0472510082077804,8.522974343327089,8.8412691250536302,9.0284835073385015,9.1036677905009906,9.0805437775867617,8.9687046178918344,8.7743410412288227,8.5006432510217511,8.1479460631586917,7.7136278478736529,7.1917170680547402,6.5720777825559029,5.838889673370824,4.9677923317597168,3.9201999268635963,2.6308930487726219,0.97760877404246582,-1.3036736356546335],[0,-2.6095505553206833,-2.5091832262698879,-2.4162505141858177,-2.3299558529648956,-2.2496125476902442,-2.1746254627672359,-2.1044762542908737,-2.0387113713442839,-1.9769322388793056,-1.9187871730299144,-1.8639646823719167,-1.8121878856393634,-1.7632098346761376,-1.7168095758688706,-1.6727888175132586,-1.6309690970754271,-1.5911893630004168,-1.5533039019765973,-1.5171805554190021,-1.4826991791594792,-1.4497503085114907,-1.4182339974568932,-1.3880588060216401,-1.3591409142295225]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
