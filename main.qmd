@@ -1,9 +1,6 @@
 ---
 title: "Álgebra Linear Computacional - Grupo 4"
-format:
-  html:
-    self-contained-math: true
-    embed-resources: true
+format: pdf
 editor: visual
 author: "Felipe Pêpe,\nGustavo Oliveira,\nIgor Godinho,\nLucas Inocêncio,\nMatheus Cardoso"
 prefer-html: true
@@ -143,7 +140,7 @@ ploting_mesh <- function(solution, to_pdf=FALSE) {
   }
 }
 
-ploting_mesh(solution)
+ploting_mesh(solution, to_pdf = TRUE)
 ```
 
 # Grids e Grafos
@@ -448,6 +445,9 @@ adj <- matrix(0, length(x), length(y))
 for (i in 1:len) {
   adj[ind1[i], ind2[i]] <- 1
   adj[ind2[i], ind1[i]] <- 1
+  
+  adj[ind1[i], ind1[i]] <- 1
+  adj[ind2[i], ind2[i]] <- 1
 }
 
 heatmap(adj, Colv = "Rowv", Rowv = NA,
